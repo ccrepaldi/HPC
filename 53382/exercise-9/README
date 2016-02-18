@@ -1,0 +1,54 @@
+Student: Caike Crepaldi
+Course: Tools for HPC (2015)
+
+Exercise 9 solutions and comments.
+
+Note.
+I had a lot of trouble with this exercise so some problems should be incomplete. I think that using a cluster is very coll and all but it gave me a lot of headache in this exercise. The pangolin server was able to execute codes that the alcyone spent a lot of time running before canceling the job (when -n>12).
+I used the submit_parallel_use_scratch but even so the alcyone did not run my codes. And since I don't know how a cluster works I could never find where my mistake was. In short, it seems that I need to learn how to use a cluster correctly. 
+
+Problem 1.
+
+I had some problems using this program in alcyone. In short, I had problems running it with more than 12 processes even while using the submit_parallel_use_scratch file to submit the job. I don't know why.
+I did not have this problem while using the same code in the pangolin server.
+
+The graphic is in the problem folder. The graphic uses the mean and standart deviation of the mean of the times in the prob1.out to plot and visualize the data.
+
+After running with -n=2..24 several times and ploting the results (graph: mpi_many_times.png), we can see some fluctuation in the time values.
+It seems that the times and its fluctuation (represented as the standart deviation of the mean) gets bigger with a bigger number of processes. The times should get bigger because the number of values that the program needs to sum grows with the number of processes.
+
+Problem 2.
+
+This problem is other complicated one. In order to get at least some points I will explain my reasoning:
+
+First I create and fill a integer matrix of size 8x8 (we will call n the number of rows).
+
+Then I reshape this matrix into a 1 dimensional array and send pieces of this array to each process. I use scatter to do this.
+Lets say that the number of process is ntasks. The number of columns in each peace of the scattered matrix shall be ncol = 8/ntasks.
+This columns, however, will be stored in a 1 dimensional array called piece0.
+
+Then each process receives a piece0 with data from ncol columns.
+Each process will have its piece of the big original matrix stored in this array piece0.
+
+Why use only 1 dimensional array? Because I tried using entire matrix with mpi routines and it didn't work. Sad but true.
+
+Then I use the mpi_alltoall to send piece0 elements to the other processes, becoming the piece1 (that should be a piece of the already transposed matrix).
+In this case the count argument should be (ncol*n)/ntasks in order to have piece1 replacing all of its elements.
+In other words, each process shall receive (ncol*n)/ntasks from each process, including himself, receiving ncol*n elements in total, thus filling piece1 entirely.
+
+Lastly I send the piece1 from each processes using mpi_gather in order to combine them into the 1 dimensional array with n*n elements and finaly I reshape this array into a nxn matrix again (this time the matrix should be the transposed version of the original one).
+
+I was able to create a code that transpose the matrix if the number of processes is equal to the number of columns or rows in the square matrix. This happens because of how the alltoall routine works. If a processor gets more than 1 column of data, the code messes with the order and the result is not the transposed version of the original matrix but a messed version of the original one. If I could use a mpi routine other than alltoall maybe this messed result could be avoided. I will look foward to see the solution to this problem since I can't figure out a way to control the order of the alltoall routine in the case where there is more than 1 column per process.
+
+In the prob2.out file is the output when runing the code with 8 processes.
+
+Problem 3.
+
+The first 2 codes are very straightfoward. Run them and you will see that the first one (ex9p3.f90) always works and the second one (ex9p3_2.f90) never works (you will have to kill the program because of the deadlock).
+The third one, however, will print the size of the number of processes, the current id, and the message size. This way you can see when the code stops working. I ran this code with 2 processes (it's enough for this task) in the pangolin linux server. You will see in the prob3.out file that it stops working after size = 1006. After that had to kill the process using ctrl+c in the shell.
+
+Problem 4.
+
+This program reads the file prob4.data and finds the value svalue stored inside. Then it prints the index where it found and its current index. In the source code you must declare the number of elements in the file (nmax). In my case I put nmax=20 (you can change that).
+It is important to run this program with a number of processes so that the nmax is multiple of the number of processes (example: if nmax=20 you can run the program with nprocs=2,4,5,10,20) so that the data buffer can be scattered equally between the processes.
+P.s.: I used nmax=20 just as a test, you can change that as long as you are willing to increment the prob4.data with more elements.

@@ -1,0 +1,19 @@
+id 1/4
+
+host: al49
+id 2/4
+id 3/4
+
+host: al49
+Arguments : ,
+id 0/4
+
+message: 1 4     sender: 8 0 1 50 0
+
+message: 3 4     sender: 8 0 3 50 0
+
+
+host: al49
+message: 2 4     sender: 8 0 2 50 0
+
+host: al49

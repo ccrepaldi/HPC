@@ -1,0 +1,10 @@
+ Procs =            8
+ Thread =            1  out of            8           2           4
+ Thread =            5  out of            8           7           6
+ Thread =            3  out of            8           6           8
+ Thread =            2  out of            8           6           8
+ Thread =            0  out of            8           6           8
+ Thread =            7  out of            8           6           8
+ Thread =            4  out of            8           6           8
+ Thread =            6  out of            8           6           8
+ I'm the master:          -1           6

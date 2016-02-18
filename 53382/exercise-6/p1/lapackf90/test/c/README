@@ -1,0 +1,18 @@
+
+
+LAPACK TEST PROGRAMS
+
+Compilation:
+gfortran -o lineardouble lineardouble.c -llapack -L../../src
+gfortran -o eigendouble eigendouble.c -llapack -L../../src
+
+(NOTE: GNU Fortran compiler is used because LAPACK library is compiled
+using gfortran and uses Fortran libraries that are easiest to link
+with gfortran. gfortran recognizes that the source code is in C and
+starts the appropriate front-end.)
+
+
+Running:
+./lineardouble < matrix4 
+./eigendouble < matrix4
+

@@ -1,0 +1,14 @@
+Student: Caike Crepaldi.
+
+Note.
+The outputs of the programs have the extension '.out'.
+The compilation and execution was done in the alcyone cluster.
+The tree-like structure used in the problem 3 is shown in the image packed together with the other files in this '.tgz' archive.
+The number of cores used to run the programs of the problems 1,2,3, and 4 are 8, 8, 12, and 12, respectively.
+
+Prob 1.
+I used the following execution command: srun --resv-ports ./prog 22 44 666 23 98 &> $1.out
+
+Prob 4.
+Using the 'prob4.out' output to analyse the fairness of the message passing implementation, I can deduce that it is very fair since it is not possible to see a well defined pattern in the output.
+In this program each process sends 100 messages with the value of 10 times its own id so you can identify from where the message came in the output.

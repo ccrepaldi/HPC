@@ -1,0 +1,50 @@
+Tools for High Performance Computing (Autumn 2015)
+Student: Caike Crepaldi.
+
+
+My computer: Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz (4 cores)
+
+
+Problem 1.
+
+After compiling and runing the omp_hello.f90 code in my laptop (Macbook pro with 4 cores (Intel i7 quad core) and with the o.s. Mac OSX El Capitain), I got the following output:
+---------------
+$ ./a.out
+Procs =            8
+Thread =            1  out of            8           2           4
+Thread =            5  out of            8           7           6
+Thread =            3  out of            8           6           8
+Thread =            2  out of            8           6           8
+Thread =            0  out of            8           6           8
+Thread =            7  out of            8           6           8
+Thread =            4  out of            8           6           8
+Thread =            6  out of            8           6           8
+I'm the master:          -1           6
+---------------
+We can see that 8 threads are started.
+
+Problem 2.
+
+See the prob2.output file for my output and the script_red.sh for the script that created that output file.
+The figure (.eps or .png) has the graphic with the data from threads 1-9 before the time begun to increase instead of decreasing.
+The model of the basic fit (in red) is y=a/x+b, where a and b are fitting parameters.
+The model of the ideal fit (in cian) is y=a/x (b=0). This model reflects the ideal behaviour expected.
+According to the Course assistant (Andrey) the expected behavior is that: "every time you increase the number of used cores twice, the WCT should decrease twice".
+So we expect something like y=1/x as the ideal scaling.
+As the ideal scaling (in green), I used y=y(1)/x.
+
+We can see, comparing the basic with the ideal fitting and scaling, that the WCtimes are bigger than expected by the ideal scaling (or the ideal fitting).
+
+Problem 3.
+
+See the source code in ex11p3.f90.
+
+Problem 4.
+
+See the source code in ex11p4.f90.
+The code also prints the Wclock time after doing the iterations.
+The schedule clause is used in order to devide the loop in chunk pieces (in our case chunk=10, but this can be easily altered in the code) and statically (if used as schedule(static,chunk), as in our case) allocate the threads to these pieces. This is done in the ex11p4.f90 code. Each thread takes care of calculating 1 row of the C matrix (where C=AxB). This informations is printed on screen.
+
+
+Note.
+I used gfortran in order to compile the openmp code.

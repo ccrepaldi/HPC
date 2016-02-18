@@ -1,0 +1,21 @@
+Tools for HPC (Autumn 2015)
+Student: Caike Crepaldi <caike.crepaldi@helsinki.fi>
+
+The graph with Wall Clock Times is together with this file as a png image.
+An example of output is in the file fort.10.
+The command ran for the file ouput was:
+mpirun -np 1 a.out 100 0.01 10000 1 1 100
+
+For the command used to get the time values see below:
+mpirun -np X a.out 100 0.01 10000 1 >> times.txt
+Where X is the number of processes.
+
+If the program runs with only 4 arguments it only prints its execution time.
+
+As for the graphic, using the time data obtained with the program running with the previously stated parameters (see in the past commands in this text) in pangolin server, we can see what seems to be a quadratic relation between the number of processes and the WCtime (for the chosen parameters) in this specific case. See the graphic for more details.
+
+The graphic data can be found in the file times.txt.
+
+The program was run in pangolin server, root directory.
+
+See other examples of commands and output in the file example_output.txt.

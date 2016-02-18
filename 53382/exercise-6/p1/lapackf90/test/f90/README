@@ -1,0 +1,12 @@
+
+
+LAPACK TEST PROGRAMS
+
+Compilation:
+gfortran -o lineardouble lineardouble.f90 -llapack -L../../src
+gfortran -o eigendouble eigendouble.f90 -llapack -L../../src
+
+Running:
+./lineardouble < matrix4 
+./eigendouble < matrix4
+

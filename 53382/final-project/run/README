@@ -1,0 +1,16 @@
+Author: Caike Crepaldi.
+Professor: Antti Kuronen.
+Course: Tools for HPC (Autumn 2015).
+----------------------------------------
+
+Please use the make command in the ../src folder before using the ./get_times.sh script. This script needs poisson_omp program.
+
+In this folder you will find 5 timesN.txt (N=1...5) that is the output of ./get_times.sh N (N=1...5) in my computer. Each file has 25 wallclock times of poisson_omp ran with N threads.
+
+The graphic Wctime_OpenMP_N128 was ploted using the mean value of each file. The uncertainty in the graphic (error bar) is the standart deviation of the mean (std/sqrt(25)). The graphic shows the scaling behavior of poisson_omp in my computer (with 4 physical cores). The Wctime_OpenMP_N128_scaling figure shows the same data as the Wctime_OpenMP_N128 but with the ideal scaling of y=y(1)/x ploted.
+
+The Wctime_OpenMP_NX (X=300,364,442,580) figure shows the result of running once the poisson_omp program in my computer with 1-5 threads and with N=X.
+
+The script ./get_times.sh needs 1 argument: The number of threads.
+
+The file poisson_omp_output.txt shows examples of input and output of the poisson_omp program.

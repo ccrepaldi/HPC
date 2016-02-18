@@ -1,0 +1,12 @@
+Tools for HPC (Autumn 2015)
+Student: Caike Crepaldi <caike.crepaldi@helsinki.fi>
+
+Notes and Comments.
+
+See source code in the ex12.f90 file.
+For the times data see omp_times.txt file.
+See graphic (comparison of the MPI and OpenMP performances) in the .eps or .png file.
+We can notice that the OpenMP's version is much faster than the MPI's.
+For this version, the command line arguments continue the same (work just like the MPI's version of the code).
+If you use only four arguments, the code will just print the WallClock times in the screen.
+If you want to change the number of threads, please modifu the value of the integer parameter nt in the source code.

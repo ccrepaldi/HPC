@@ -1,0 +1,18 @@
+In problem 1:
+  The output from different processor numbers is shown in the file ex7p1_n.out,
+where n is the processor number (1, 2 or 4).
+
+In problem 2-4:
+  This task is compiled with 8 cores (-n 8).
+
+In problem 4:
+  I was expecting a problem in the program's execution, since the task creates
+ a closed loop between the processors' message passing. However, after the 
+process with id=ntasks-1 sends the message to the process with id=0, the 
+program's execution ends instead of continuing forever in a infinite loop. 
+
+NOTE:
+  Compilation and execution done in alcyone.
+Using the submit_parallel_use_scratch file, the program ran through the 
+following command: srun --resv-ports ./prog &> $1.out
+See file in the folder.

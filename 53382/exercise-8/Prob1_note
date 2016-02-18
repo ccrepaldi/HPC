@@ -1,0 +1,77 @@
+In the first problem, everytime i try to use the command line argument function or routines and allocate the msg inside the if(id==0) contruct I get a segmentation fault as result.
+Se an example of this below.
+Therefore I will allocate and get the number of command line arguments outside the if() construct.
+
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source
+prog               00000000005A1486  Unknown               Unknown  Unknown
+prog               0000000000592786  Unknown               Unknown  Unknown
+prog               00000000004328B2  Unknown               Unknown  Unknown
+prog               0000000000423070  Unknown               Unknown  Unknown
+prog               0000000000422B4D  Unknown               Unknown  Unknown
+prog               000000000040AE24  Unknown               Unknown  Unknown
+prog               00000000004B8A7B  Unknown               Unknown  Unknown
+prog               00000000004BA4EE  Unknown               Unknown  Unknown
+prog               00000000004099A1  Unknown               Unknown  Unknown
+prog               0000000000406D53  Unknown               Unknown  Unknown
+prog               0000000000406CB2  Unknown               Unknown  Unknown
+prog               000000000040696C  Unknown               Unknown  Unknown
+libc.so.6          0000003F1B01ED5D  Unknown               Unknown  Unknown
+prog               0000000000406869  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source
+prog               00000000005A1486  Unknown               Unknown  Unknown
+prog               0000000000592786  Unknown               Unknown  Unknown
+prog               00000000004328B2  Unknown               Unknown  Unknown
+prog               0000000000423070  Unknown               Unknown  Unknown
+prog               0000000000422B4D  Unknown               Unknown  Unknown
+prog               000000000040AE24  Unknown               Unknown  Unknown
+prog               00000000004B8A7B  Unknown               Unknown  Unknown
+prog               00000000004BA4EE  Unknown               Unknown  Unknown
+prog               00000000004099A1  Unknown               Unknown  Unknown
+prog               0000000000406D53  Unknown               Unknown  Unknown
+prog               0000000000406CB2  Unknown               Unknown  Unknown
+prog               000000000040696C  Unknown               Unknown  Unknown
+libc.so.6          0000003F1B01ED5D  Unknown               Unknown  Unknown
+prog               0000000000406869  Unknown               Unknown  Unknown
+  forrtl: severe (174): SIGSEGV, segmentation fault occurred
+  Image              PC                Routine            Line        Source
+  prog               00000000005A1486  Unknown               Unknown  Unknown
+  prog               0000000000592786  Unknown               Unknown  Unknown
+  prog               0000000000481A79  Unknown               Unknown  Unknown
+  prog               0000000000490211  Unknown               Unknown  Unknown
+  prog               000000000042934C  Unknown               Unknown  Unknown
+  prog               000000000042266F  Unknown               Unknown  Unknown
+  prog               000000000040AE24  Unknown               Unknown  Unknown
+  prog               00000000004B8A7B  Unknown               Unknown  Unknown
+  prog               00000000004BA4EE  Unknown               Unknown  Unknown
+  prog               00000000004099A1  Unknown               Unknown  Unknown
+  prog               0000000000406D53  Unknown               Unknown  Unknown
+  prog               0000000000406CB2  Unknown               Unknown  Unknown
+  prog               000000000040696C  Unknown               Unknown  Unknown
+  libc.so.6          00000030A861ED5D  Unknown               Unknown  Unknown
+  prog               0000000000406869  Unknown               Unknown  Unknown
+  forrtl: severe (174): SIGSEGV, segmentation fault occurred
+  Image              PC                Routine            Line        Source
+  prog               00000000005A1486  Unknown               Unknown  Unknown
+  prog               0000000000592786  Unknown               Unknown  Unknown
+  prog               0000000000481A79  Unknown               Unknown  Unknown
+  prog               0000000000490211  Unknown               Unknown  Unknown
+  prog               000000000042934C  Unknown               Unknown  Unknown
+  prog               000000000042266F  Unknown               Unknown  Unknown
+  prog               000000000040AE24  Unknown               Unknown  Unknown
+  prog               00000000004B8A7B  Unknown               Unknown  Unknown
+  prog               00000000004BA4EE  Unknown               Unknown  Unknown
+  prog               00000000004099A1  Unknown               Unknown  Unknown
+  prog               0000000000406D53  Unknown               Unknown  Unknown
+  prog               0000000000406CB2  Unknown               Unknown  Unknown
+  prog               000000000040696C  Unknown               Unknown  Unknown
+  libc.so.6          00000030A861ED5D  Unknown               Unknown  Unknown
+  prog               0000000000406869  Unknown               Unknown  Unknown
+  srun: error: al49: tasks 4,8: Exited with exit code 174
+  srun: Terminating job step 3152978.0
+  slurmstepd: error: *** STEP 3152978.0 CANCELLED AT 2015-11-05T00:42:37 *** on al48
+  srun: Job step aborted: Waiting up to 2 seconds for job step to finish.
+  srun: error: al48: tasks 1-2: Exited with exit code 174
+  srun: error: al48: task 0: Killed
+  srun: error: al49: tasks 3,5-7,9-11: Killed

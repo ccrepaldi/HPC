@@ -1,0 +1,22 @@
+$ ./poisson_omp
+CPUs (cores) available: 8
+Running with 4 threads.
+--------------------------------------------------
+N = 128
+gamma =   1.938
+--------------------------------------------------
+Method converged!
+Iter = 396
+Diff =   0.000001
+Wall clock time:    0.08285
+$ ./poisson_omp 2
+CPUs (cores) available: 8
+Running with 2 threads.
+--------------------------------------------------
+N = 128
+gamma =   1.938
+--------------------------------------------------
+Method converged!
+Iter = 396
+Diff =   0.000001
+Wall clock time:    0.11324

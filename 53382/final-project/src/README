@@ -1,0 +1,16 @@
+Author: Caike Crepaldi.
+Professor: Antti Kuronen.
+Course: Tools for HPC (Autumn 2015).
+----------------------------------------
+
+This folder has 3 source codes:
+     poisson_omp.f90 - OpenMP version of the algorithm. If the user calls the program with 1 command line argument, the program uses this argument as the number of threads. Else, it will use 4 threads. In the end of the program's execution it will print the wallclock time.
+     poisson_serial.f90 - Serial version of the code. In the end of the program's execution it will print the wallclock time.
+     poisson_serial_N10.f90 - Serial version of the code with N=10. It will print several version of the matrices G and F (including the final version) so the user can see the updates and debug the code.
+
+In order to compile the program use the make command. See the Makefile for information regarding the compilation commands of each program.
+
+By using the command "make", the program poisson_omp will be compiled.
+In order to compile the other programs use the command "make program_name" where program_name is the name of the source code file without the "*.f90" extension.
+
+The command "make clean" removes all *.mod *.o files from the folder.

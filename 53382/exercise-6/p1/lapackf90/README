@@ -1,0 +1,51 @@
+
+Fortran90 version of LAPACK double precision routines. 
+
+A. Kuronen, 2009, 2013, antti.kuronen@helsinki.fi
+
+Official source: http://www.netlib.org/lapack/
+
+Obtained from: 
+http://people.scs.fsu.edu/~burkardt/f_src/lapack/lapack.html
+Package also contains the BLAS routines needed by LAPACK.
+
+
+BUILDING THE LIBRARY
+--------------------
+
+To create the library go to directory src and give commands
+
+make cleanall
+make
+
+This should create file liblapack.a in that directory.
+Has been tested using gfortran, ifort, and openf95 compilers. 
+To use other compilers, modify file src/Makefile accordingly.
+
+
+USING THE LIBRARY
+-----------------
+
+To use the library in your programs use the compilation command like
+
+gfortran -o myprog myprog.f90 -llapack -L/path/to/library/directory
+
+When using the library in C programs (at least with gcc) you should
+compile the program with gfortran:
+
+gfortran -o myprog myprog.c -llapack -L/path/to/library/directory
+
+(This is because LAPACK built by gfortran uses some fortran libraries
+and they are automatically linked when using gfortran to compile the
+code. On the other hand, to compile the C code gfortran notices that
+the source is in C and processes it using the C front-end.)
+
+
+TEST PROGRAMS
+-------------
+
+Folders test/f90 and test/c contain small programs for testing the
+library. See the README files in those folders on instructions for
+compiling and running the tests.
+
+
